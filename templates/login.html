@@ -1,0 +1,73 @@
+{% load static %}
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        MART
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        button {
+            border: 1px solid black;
+            border-radius: 5px;
+
+        }
+
+        button:hover {
+            background: #03e9f4;
+            color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4
+        }
+
+        {% include 'css.html' %}
+    </style>
+</head>
+
+<body>
+    <div class="wave"></div>
+    <h1>
+        <center>
+            SATELLITE MART
+        </center>
+    </h1>
+    <h2>
+        <center>
+            <div id="login">
+                <h2>LOG IN</h2>
+
+                <form action="{% url 'login' %}" method="post">{% csrf_token %}
+
+                    <div class="user-box">
+                        <input type="text" name="username" required>
+                        <label>Username</label>
+                    </div>
+
+                    <div class="user-box">
+                        <input type="password" name="password" required>
+                        <label>Password</label>
+                    </div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <button type="submit" style="font-size: large; padding: 5px">
+                        <b>LOGIN</b>
+                    </button><br>
+                    <br>
+                    {% include 'alerts.html' %}
+                </form>
+
+            </div>
+        </center>
+    </h2>
+
+</body>
+
+</html>
